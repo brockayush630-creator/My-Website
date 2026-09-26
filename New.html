@@ -1,0 +1,1225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Jangli Billi 🐱🎂</title>
+
+<style>
+
+/* =========================
+   BASIC SETTINGS
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    font-family:"Poppins", Arial, sans-serif;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3,
+        #8e2de2
+    );
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+    display:none;
+
+    min-height:100vh;
+    width:100%;
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    overflow:visible;
+
+    animation:pageEnter .8s ease;
+}
+
+.page.active{
+    display:flex;
+}
+
+@keyframes pageEnter{
+
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1{
+    font-size:clamp(42px,8vw,85px);
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.7),
+    0 0 30px rgba(255,255,255,.4);
+}
+
+h2{
+    font-size:clamp(28px,5vw,55px);
+
+    margin-bottom:20px;
+}
+
+h3{
+    font-size:25px;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+p{
+    max-width:800px;
+
+    margin:12px auto;
+
+    font-size:20px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   EMOJI
+========================= */
+
+.emoji{
+    font-size:90px;
+
+    animation:bounce 1.5s infinite;
+}
+
+.big{
+    font-size:120px;
+
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px) rotate(5deg);
+    }
+}
+
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.card{
+
+    width:90%;
+    max-width:850px;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.3);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.25);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+
+    border:none;
+
+    padding:16px 32px;
+
+    margin-top:28px;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    color:#ff4081;
+
+    background:white;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+button:hover{
+
+    transform:
+    scale(1.1)
+    rotate(-2deg);
+
+    box-shadow:
+    0 0 35px white;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+
+    position:fixed;
+
+    top:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:1000;
+
+    padding:7px 15px;
+
+    border-radius:20px;
+
+    background:rgba(0,0,0,.2);
+
+    backdrop-filter:blur(10px);
+
+    font-size:14px;
+}
+
+
+/* =========================
+   ROAST
+========================= */
+
+.roast{
+
+    margin:15px 0;
+
+    padding:18px;
+
+    border-radius:20px;
+
+    font-size:21px;
+
+    background:rgba(0,0,0,.15);
+
+    transition:.3s;
+}
+
+.roast:hover{
+
+    transform:
+    scale(1.03)
+    rotate(-1deg);
+
+    background:rgba(0,0,0,.25);
+}
+
+
+/* =========================
+   COMMENT BOX
+========================= */
+
+textarea{
+
+    width:100%;
+    max-width:700px;
+
+    height:180px;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:20px;
+
+    resize:vertical;
+
+    font-size:17px;
+
+    font-family:inherit;
+
+    color:#444;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.2);
+}
+
+textarea::placeholder{
+    color:#999;
+}
+
+.counter{
+
+    max-width:700px;
+
+    width:100%;
+
+    margin-top:5px;
+
+    text-align:right;
+
+    font-size:14px;
+
+    opacity:.8;
+}
+
+#commentResult{
+
+    display:none;
+
+    margin-top:25px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.2);
+
+    animation:pageEnter .6s ease;
+}
+
+.comment-title{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+.comment-text{
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    word-wrap:break-word;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    pointer-events:none;
+
+    z-index:999;
+
+    animation:
+    floatUp 6s linear forwards;
+}
+
+@keyframes floatUp{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .page{
+        padding:70px 15px;
+    }
+
+    .card{
+        padding:25px 18px;
+        width:95%;
+    }
+
+    p{
+        font-size:17px;
+    }
+
+    .roast{
+        font-size:18px;
+    }
+
+    .big{
+        font-size:90px;
+    }
+
+    .emoji{
+        font-size:70px;
+    }
+
+    button{
+        font-size:16px;
+        padding:14px 24px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     PROGRESS
+========================= -->
+
+<div class="progress" id="progress">
+    Page 1 / 8
+</div>
+
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<section class="page active" id="page1">
+
+    <div class="emoji">
+        🎁
+    </div>
+
+    <h1>
+        WAIT!!! 😳
+    </h1>
+
+    <p>
+        Someone extremely suspicious has sent you
+        a secret birthday website...
+    </p>
+
+    <p>
+        But before you continue...
+    </p>
+
+    <p>
+        <b>
+            Are you actually Jangli Billi? 🐱
+        </b>
+    </p>
+
+    <button onclick="nextPage()">
+        YES, I'M THE BILLI 😼
+    </button>
+
+</section>
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<section class="page" id="page2">
+
+    <div class="big">
+        🐱
+    </div>
+
+    <h1>
+        HAPPY BIRTHDAY
+    </h1>
+
+    <h2>
+        Jangli Billi
+        <br>
+        aka Rasgulle 🍥
+    </h2>
+
+    <div class="card">
+
+        <p>
+            🎉 Congratulations!
+        </p>
+
+        <p>
+            You have successfully survived another
+            year of being the world's most dangerous,
+            cutest and most annoying Jangli Billi. 😂
+        </p>
+
+    </div>
+
+    <button onclick="nextPage()">
+        BUT WAIT... 👀
+    </button>
+
+</section>
+
+
+<!-- =========================
+     PAGE 3
+========================= -->
+
+<section class="page" id="page3">
+
+    <div class="emoji">
+        🔐
+    </div>
+
+    <h2>
+        SECRET FILE FOUND
+    </h2>
+
+    <div class="card">
+
+        <h3>
+            SUBJECT: RASGULLE 🍥
+        </h3>
+
+        <br>
+
+        <p>
+            🐱 Species:
+            Jangli Billi
+        </p>
+
+        <p>
+            🍥 Nickname:
+            Rasgulle
+        </p>
+
+        <p>
+            😂 Special Skill:
+            Annoying Everyone
+        </p>
+
+        <p>
+            😎 Attitude Level:
+            9999+
+        </p>
+
+        <p>
+            ❤️ Friendship Level:
+            Unlimited
+        </p>
+
+    </div>
+
+    <button onclick="nextPage()">
+        OPEN CLASSIFIED INFORMATION 🔓
+    </button>
+
+</section>
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<section class="page" id="page4">
+
+    <div class="emoji">
+        😂
+    </div>
+
+    <h2>
+        THE OFFICIAL ROAST 🔥
+    </h2>
+
+    <div class="card">
+
+        <div class="roast">
+            🐱 You call yourself Jangli Billi...
+            but even cats have better manners.
+        </div>
+
+        <div class="roast">
+            🍥 And Rasgulle?
+            Because apparently you're sweet...
+            but only when nobody is talking to you. 😂
+        </div>
+
+        <div class="roast">
+            🧠 Brain.exe sometimes stops responding.
+        </div>
+
+        <div class="roast">
+            📱 Your phone probably has more patience
+            than your friends.
+        </div>
+
+        <div class="roast">
+            🤡 Warning:
+            Too much friendship with this Billi
+            may cause permanent stupidity.
+        </div>
+
+    </div>
+
+    <button onclick="nextPage()">
+        OKAY OKAY... I'LL STOP 😂
+    </button>
+
+</section>
+
+
+<!-- =========================
+     PAGE 5
+========================= -->
+
+<section class="page" id="page5">
+
+    <div class="emoji">
+        ❤️
+    </div>
+
+    <h2>
+        Jokes Apart...
+    </h2>
+
+    <div class="card">
+
+        <p>
+            Life becomes a little more crazy,
+            a little more stupid,
+            and definitely a lot more memorable
+            when you're around.
+        </p>
+
+        <p>
+            From random conversations to stupid jokes,
+            from laughing at absolutely nothing
+            to roasting each other for no reason...
+        </p>
+
+        <p>
+            <b>
+                I'm genuinely lucky to have
+                a friend as crazy as you. ❤️
+            </b>
+        </p>
+
+        <p>
+            No matter how much I roast you,
+            you're still my favourite Rasgulle. 🍥
+        </p>
+
+    </div>
+
+    <button onclick="nextPage()">
+        ONE LAST SURPRISE 🎁
+    </button>
+
+</section>
+
+
+<!-- =========================
+     PAGE 6
+========================= -->
+
+<section class="page" id="page6">
+
+    <div class="big">
+        🎂
+    </div>
+
+    <h1>
+        YOUR MISSION
+    </h1>
+
+    <div class="card">
+
+        <p>
+            Your birthday mission for this year:
+        </p>
+
+        <br>
+
+        <p>✅ Stay crazy</p>
+
+        <p>✅ Keep smiling</p>
+
+        <p>✅ Eat lots of cake</p>
+
+        <p>✅ Don't become too mature 😭</p>
+
+        <p>✅ Keep being my favourite Rasgulle</p>
+
+        <p>✅ Annoy me forever</p>
+
+    </div>
+
+    <button onclick="nextPage()">
+        MISSION ACCEPTED 😎
+    </button>
+
+</section>
+
+
+<!-- =========================
+     PAGE 7
+========================= -->
+
+<section class="page" id="page7">
+
+    <div class="big">
+        🎉🎂🎉
+    </div>
+
+    <h1>
+        HAPPY BIRTHDAY
+    </h1>
+
+    <h2>
+        MY JANGLI BILLI 🐱
+    </h2>
+
+    <div class="card">
+
+        <p class="final">
+            ❤️ HAPPY BIRTHDAY RASGULLE ❤️
+        </p>
+
+        <p>
+            May your life be filled with happiness,
+            success, laughter, crazy adventures
+            and unlimited cake! 🎂
+        </p>
+
+        <p>
+            Never change...
+            <br>
+            except maybe become slightly less annoying. 😂
+        </p>
+
+        <br>
+
+        <p>
+            <b>
+                Lots of love & unlimited friendship! 🫶
+            </b>
+        </p>
+
+    </div>
+
+    <button onclick="nextPage(); celebrate()">
+        💌 ONE LAST THING...
+    </button>
+
+</section>
+
+
+<!-- =========================
+     PAGE 8
+========================= -->
+
+<section class="page" id="page8">
+
+    <div class="big">
+        💌
+    </div>
+
+    <h2>
+        NOW IT'S YOUR TURN 👀
+    </h2>
+
+    <div class="card">
+
+        <h2>
+            💬 Leave a Message for Me
+        </h2>
+
+        <p>
+            Okay Rasgulle 🍥,
+            enough about you!
+        </p>
+
+        <p>
+            Now write something for the person
+            who made this crazy birthday website
+            for you. 😂❤️
+        </p>
+
+        <textarea
+            id="commentBox"
+            placeholder="Write your message here... 💭"
+            maxlength="500">
+        </textarea>
+
+        <div class="counter">
+            <span id="charCount">0</span>/500
+        </div>
+
+        <button
+            id="sendButton"
+            onclick="saveComment()">
+
+            💌 SEND MY MESSAGE
+
+        </button>
+
+        <div id="commentResult"></div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+let currentPage = 1;
+
+const totalPages = 8;
+
+
+function nextPage(){
+
+    if(currentPage >= totalPages){
+        return;
+    }
+
+    document
+        .getElementById("page" + currentPage)
+        .classList.remove("active");
+
+
+    currentPage++;
+
+
+    document
+        .getElementById("page" + currentPage)
+        .classList.add("active");
+
+
+    document
+        .getElementById("progress")
+        .innerText =
+        "Page " +
+        currentPage +
+        " / " +
+        totalPages;
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+
+    createHearts();
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHearts(){
+
+    for(let i=0;i<15;i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className = "heart";
+
+
+        const emojis = [
+            "❤️",
+            "💖",
+            "💕",
+            "💗",
+            "✨",
+            "🎉",
+            "🎂",
+            "🐱",
+            "🍥"
+        ];
+
+
+        heart.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random()*100 + "%";
+
+
+        heart.style.animationDuration =
+            (3 + Math.random()*4) + "s";
+
+
+        heart.style.fontSize =
+            (20 + Math.random()*30) + "px";
+
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },7000);
+
+    }
+
+}
+
+
+/* =========================
+   FINAL CELEBRATION
+========================= */
+
+function celebrate(){
+
+    for(let i=0;i<60;i++){
+
+        setTimeout(()=>{
+
+            createHearts();
+
+        },i*50);
+
+    }
+
+}
+
+
+/* =========================
+   CHARACTER COUNTER
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const box =
+            document.getElementById(
+                "commentBox"
+            );
+
+        const counter =
+            document.getElementById(
+                "charCount"
+            );
+
+
+        box.addEventListener(
+            "input",
+            function(){
+
+                counter.innerText =
+                    box.value.length;
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================
+   GOOGLE FORM SETTINGS
+========================= */
+
+const GOOGLE_FORM_URL =
+"https://docs.google.com/forms/d/e/1FAIpQLSdm06qah0cW4wleqePIyjN1uhJQXn7BrER4lphBVLez2nDx1g/formResponse";
+
+
+const GOOGLE_ENTRY_ID =
+"entry.2141873398";
+
+
+/* =========================
+   SEND MESSAGE TO GOOGLE FORM
+========================= */
+
+function saveComment(){
+
+    const box =
+        document.getElementById(
+            "commentBox"
+        );
+
+
+    const result =
+        document.getElementById(
+            "commentResult"
+        );
+
+
+    const button =
+        document.getElementById(
+            "sendButton"
+        );
+
+
+    const message =
+        box.value.trim();
+
+
+    /* EMPTY MESSAGE */
+
+    if(message === ""){
+
+        result.style.display =
+            "block";
+
+
+        result.innerHTML = `
+
+            <div class="comment-title">
+                😾 OI Jangli Billi!
+            </div>
+
+            <div class="comment-text">
+
+                You can't send an empty message! 😂
+
+                <br><br>
+
+                Write something for me first. ❤️
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* BUTTON LOADING */
+
+    button.disabled = true;
+
+    button.innerText =
+        "📩 SENDING...";
+
+
+    /*
+       Create Google Form data
+    */
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        GOOGLE_ENTRY_ID,
+        message
+    );
+
+
+    /*
+       Send to Google Forms
+    */
+
+    fetch(
+        GOOGLE_FORM_URL,
+        {
+            method:"POST",
+
+            mode:"no-cors",
+
+            body:formData
+        }
+    )
+    .then(()=>{
+
+        /*
+           Google Forms does not return
+           a readable response because
+           no-cors is being used.
+
+           So we show a successful
+           submission message after
+           the request is sent.
+        */
+
+        result.style.display =
+            "block";
+
+
+        result.innerHTML = `
+
+            <div class="comment-title">
+                🎉 MESSAGE SENT!
+            </div>
+
+            <div class="comment-text">
+
+                Your message has reached me! ❤️
+
+                <br><br>
+
+                🐱 Jangli Billi has officially
+                spoken! 😂🍥
+
+            </div>
+
+        `;
+
+
+        box.value = "";
+
+        document.getElementById(
+            "charCount"
+        ).innerText = "0";
+
+
+        button.disabled = false;
+
+        button.innerText =
+            "💌 SEND MY MESSAGE";
+
+
+        celebrate();
+
+    })
+    .catch(()=>{
+
+        result.style.display =
+            "block";
+
+
+        result.innerHTML = `
+
+            <div class="comment-title">
+                😿 Something went wrong
+            </div>
+
+            <div class="comment-text">
+
+                Please check your internet
+                connection and try again.
+
+            </div>
+
+        `;
+
+
+        button.disabled = false;
+
+        button.innerText =
+            "💌 SEND MY MESSAGE";
+
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>
+
